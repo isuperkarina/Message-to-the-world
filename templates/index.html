@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message to the World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fce4ec);
+      background-image: url('https://i.imgur.com/nQtxHjD.png'); /* stylowa piwonia w tle */
+      background-repeat: no-repeat;
+      background-position: top right;
+      background-size: contain;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      width: 350px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #37474f;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      margin: 10px 0;
+      border-radius: 12px;
+      box-shadow: inset 2px 2px 6px rgba(0,0,0,0.1);
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #4dd0e1;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 15px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .msg {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #37474f;
+      background: #ffffffc2;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: inset 1px 1px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <form class="container" method="POST">
+    <h1>Message to the World 🌸</h1>
+    <input type="text" name="name" placeholder="Your name" required>
+    <textarea name="message" rows="4" placeholder="Your message..." required></textarea>
+    <button type="submit">Send</button>
+
+    {% if messages %}
+      <div class="msg">
+        {% for msg in messages %}
+          <p>{{ msg }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </form>
+</body>
+</html>
