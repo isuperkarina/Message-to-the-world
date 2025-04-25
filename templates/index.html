@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message to the World</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #c0f0e8, #fce1e4);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #2d545e;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 1em;
+    }
+    button {
+      background-color: #59c3c3;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 15px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .msg {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #2d545e;
+      background: #f8f8f8;
+      padding: 15px;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Message to the World 🌸</h1>
+  <form method="POST">
+    <input type="text" name="name" placeholder="Your name" required>
+    <textarea name="message" rows="4" placeholder="Your message..." required></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  {% if messages %}
+  <div style="margin-top: 40px;">
+    <h2>Messages from around the world 🌍</h2>
+    {% for msg in messages %}
+      <div class="msg">{{ msg }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+</body>
+</html>
